@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 // External
 import { TranslateModule } from '@ngx-translate/core';
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
+import { CountUpModule } from 'countup.js-angular2';
 
 // Services
 import { AutoTagsSaveService } from './components/tags-auto/tags-save.service';
@@ -158,6 +159,7 @@ import { WrapperPipe } from './pipes/wrapper.pipe';
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    CountUpModule,
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot(),
