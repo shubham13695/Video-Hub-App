@@ -1,3 +1,4 @@
+import { ModalComponent } from './components/modal/modal.component';
 import 'reflect-metadata';
 import '../polyfills';
 
@@ -10,6 +11,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 // External
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule } from '@ngx-translate/core';
 import { VirtualScrollerModule } from 'ngx-virtual-scroller';
 import { CountUpModule } from 'countup.js-angular2';
@@ -17,9 +20,11 @@ import { CountUpModule } from 'countup.js-angular2';
 // Services
 import { AutoTagsSaveService } from './components/tags-auto/tags-save.service';
 import { AutoTagsService } from './components/tags-auto/autotags.service';
+import { ModalService } from './components/modal/modal.service';
 import { ElectronService } from './providers/electron.service';
 import { FilePathService } from './components/views/file-path.service';
 import { HomeComponent } from './components/home.component';
+import { ImageElementService } from './services/image-element.service';
 import { ManualTagsService } from './components/tags-manual/manual-tags.service';
 import { PipeSideEffectService } from './pipes/pipe-side-effect.service';
 import { ResolutionFilterService } from './pipes/resolution-filter.service';
@@ -62,6 +67,7 @@ import { ThumbnailComponent } from './components/views/thumbnail/thumbnail.compo
 import { TitleBarComponent } from './components/title-bar/title-bar.component';
 import { TopComponent } from './components/top/top.component';
 import { ViewTagsComponent } from './components/tags-manual/view-tags.component';
+import { WelcomeComponent } from './components/modal/welcome.component';
 import { WizardComponent } from './components/wizard/wizard.component';
 
 // Pipes
@@ -70,12 +76,13 @@ import { CountPipe } from './pipes/count.pipe';
 import { DeleteFilePipe } from './pipes/delete-file.pipe';
 import { DuplicateFinderPipe } from './pipes/duplicateFinder.pipe';
 import { FileSearchPipe } from './pipes/file-search.pipe';
+import { FileSizeFilterPipe } from './pipes/file-size-filter.pipe';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { FolderArrowsPipe } from './pipes/folder-arrows.pipe';
 import { FolderViewPipe } from './pipes/folder-view.pipe';
 import { FuzzySearchPipe } from './pipes/fuzzy-search.pipe';
+import { HideOfflinePipe } from './pipes/hide-offline.pipe';
 import { LengthFilterPipe } from './pipes/length-filter.pipe';
-import { FileSizeFilterPipe } from './pipes/file-size-filter.pipe';
 import { LengthPipe } from './pipes/length.pipe';
 import { MagicSearchPipe } from './pipes/magic-search.pipe';
 import { ManualTagSortPipe } from './pipes/manual-tags-sort.pipe';
@@ -108,20 +115,22 @@ import { WrapperPipe } from './pipes/wrapper.pipe';
     DuplicateFinderPipe,
     FileComponent,
     FileSearchPipe,
+    FileSizeFilterPipe,
     FileSizePipe,
     FilmstripComponent,
     FolderArrowsPipe,
     FolderViewPipe,
     FullViewComponent,
     FuzzySearchPipe,
+    HideOfflinePipe,
     HomeComponent,
     IconComponent,
     LengthFilterPipe,
-    FileSizeFilterPipe,
     LengthPipe,
     MagicSearchPipe,
     ManualTagSortPipe,
     MetaComponent,
+    ModalComponent,
     PlaylistPipe,
     RecentlyOpenedComponent,
     RegexSearchPipe,
@@ -155,9 +164,10 @@ import { WrapperPipe } from './pipes/wrapper.pipe';
     TitleBarComponent,
     TopComponent,
     ViewTagsComponent,
+    WelcomeComponent,
     WizardComponent,
     WordFrequencyPipe,
-    WrapperPipe,
+    WrapperPipe
   ],
   imports: [
     AppRoutingModule,
@@ -166,12 +176,15 @@ import { WrapperPipe } from './pipes/wrapper.pipe';
     CountUpModule,
     FormsModule,
     HttpClientModule,
+    MatDialogModule,
+    MatSnackBarModule,
     TranslateModule.forRoot(),
     VirtualScrollerModule,
   ],
   providers: [
     AutoTagsSaveService,
     AutoTagsService,
+    ModalService,
     ElectronService,
     FilePathService,
     ManualTagsService,
@@ -183,6 +196,7 @@ import { WrapperPipe } from './pipes/wrapper.pipe';
     SourceFolderService,
     StarFilterService,
     WordFrequencyService,
+    ImageElementService
   ],
   bootstrap: [AppComponent]
 })
